@@ -1,2 +1,2 @@
-welcome hk - from cli
+welcome hk - from cli from AWS
 
