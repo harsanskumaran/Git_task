@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  tomcat:
+    image: nginx:latest
+    container_name: test1
+    ports:
+      - "7878:80"
+
+  app:
+    image: python:slim
+    container_name: test2
+    depends_on:
+      - tomcat
+
+  httpd:
+    image: httpd:latest
+    container_name: test3
+    ports:
+      - "7879:80"
+

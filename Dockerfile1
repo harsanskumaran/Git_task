@@ -1,0 +1,5 @@
+FROM httpd:latest
+
+# Expose ports 8001 and 8080
+EXPOSE 8001 8080
+
