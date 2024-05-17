@@ -1,11 +1,15 @@
+FROM  ubuntu
 
-FROM  tomcat:8.0
+run apt-get update
+run apt-get install nginx -y
 
-# Set the working directory for Tomcat
-WORKDIR /usr/local/tomcat/webapps/ROOT/
 
-# Copy contents into the Tomcat directory
+WORKDIR /var/www/html/
+
+
 COPY index.html .
-)
-EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
+EXPOSE 80
+
+
+CMD ["nginx", "-g", "daemon off;"]

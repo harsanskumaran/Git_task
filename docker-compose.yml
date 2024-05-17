@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  nginx:
+    image: harsanskumaran/nginx:task
+    ports:
+      - "7878:80"
+    volumes:
+      - .:/var/opt/nginx
+
