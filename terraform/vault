@@ -1,0 +1,35 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+
+provider "vault" {
+address ="http://13.232.46.73:8200"
+token ="hvs.ZDhK60HgECPI6wj983lqKowm"
+}
+
+data "vault_kv_secret_v2" "aws"{
+mount="secret"
+name="aws/key"
+}
+# Configure the AWS Provider
+provider "aws" {
+  region = "ap-south-1"
+access_key=data.vault_kv_secret_v2.aws.data["access_key"]
+secret_key=data.vault_kv_secret_v2.aws.data["secret_key"]
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0ec0e125bb6c6e8ec"
+  instance_type = "t3.micro"
+
+tags= {
+Name = "hello world"
+}
+}
+
