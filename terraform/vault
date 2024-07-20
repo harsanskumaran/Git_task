@@ -14,8 +14,8 @@ token =""
 }
 
 data "vault_kv_secret_v2" "aws"{
-mount="secret"
-name="aws/key"
+mount=""
+name=""
 }
 # Configure the AWS Provider
 provider "aws" {
