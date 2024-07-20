@@ -10,7 +10,7 @@ terraform {
 
 provider "vault" {
 address ="http://13.232.46.73:8200"
-token ="hvs.ZDhK60HgECPI6wj983lqKowm"
+token =""
 }
 
 data "vault_kv_secret_v2" "aws"{
