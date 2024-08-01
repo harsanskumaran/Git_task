@@ -1,0 +1,17 @@
+# For installation use https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/#google_vignette
+# COMMANDS:
+# kubectl get pods (pod, po)
+# kubectl get deployments (deploy)
+# kubectl get services (svc)
+# kubectl get namespaces (namespace)
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
